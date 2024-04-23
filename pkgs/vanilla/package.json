@@ -9,6 +9,14 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "vue",
+    "react",
+    "svelte",
+    "tween",
+    "tween.js",
+    "use-tween"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
