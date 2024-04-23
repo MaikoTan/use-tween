@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "noEmit": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+  },
+  "include": ["src/**/*.ts"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ],
+}

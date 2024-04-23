@@ -1,0 +1,12 @@
+{
+  "name": "use-tween",
+  "version": "0.0.0-dev",
+  "description": "Workspaces for use-tween package",
+  "main": "index.js",
+  "author": "MaikoTan",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "pkgs/*"
+  ]
+}

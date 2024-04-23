@@ -1,0 +1,33 @@
+{
+  "name": "@use-tween/vanilla",
+  "version": "0.0.1",
+  "description": "Vanilla Hooks for Tween.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.cjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^3.9.0",
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@tweenjs/tween.js": "^23.1.1"
+  }
+}
