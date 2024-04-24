@@ -25,6 +25,20 @@
     },
     "./package.json": "./package.json"
   },
+  "author": {
+    "name": "Maiko Tan",
+    "email": "maiko.tan.coding@gmail.com",
+    "url": "https://github.com/MaikoTan"
+  },
+  "homepage": "https://github.com/MaikoTan/use-tween/tree/master/pkgs/vanilla#readme",
+  "bugs": {
+    "url": "https://github.com/MaikoTan/use-tween/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaikoTan/use-tween.git"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "vite build"
   },
