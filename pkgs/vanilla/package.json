@@ -47,8 +47,7 @@
     "@types/node": "^20.12.7",
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
-    "vite-plugin-dts": "^3.9.0",
-    "vue": "^3.4.0"
+    "vite-plugin-dts": "^3.9.0"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^23.1.1"
