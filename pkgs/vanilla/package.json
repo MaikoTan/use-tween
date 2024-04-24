@@ -36,7 +36,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaikoTan/use-tween.git"
+    "url": "https://github.com/MaikoTan/use-tween.git",
+    "directory": "pkgs/vanilla"
   },
   "license": "MIT",
   "scripts": {
