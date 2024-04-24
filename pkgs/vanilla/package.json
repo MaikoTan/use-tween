@@ -1,6 +1,6 @@
 {
   "name": "@use-tween/vanilla",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vanilla Hooks for Tween.js",
   "type": "module",
   "main": "dist/index.cjs",
@@ -36,12 +36,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaikoTan/use-tween.git",
+    "url": "git+https://github.com/MaikoTan/use-tween.git",
     "directory": "pkgs/vanilla"
   },
   "license": "MIT",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
