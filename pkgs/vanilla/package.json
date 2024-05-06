@@ -1,6 +1,6 @@
 {
   "name": "@use-tween/vanilla",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Vanilla Hooks for Tween.js",
   "type": "module",
   "main": "dist/index.cjs",
@@ -20,8 +20,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.cjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
