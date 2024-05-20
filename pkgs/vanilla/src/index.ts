@@ -80,13 +80,19 @@ export function useTween<T extends Record<string, any>>(obj: T, _setter: TweenSe
     }
   })
 
-  const update = () => {
-    return TWEEN.update()
-  }
-
   if (setter.startImmediately) {
     tween.start()
   }
 
-  return { tween, update }
+  return {
+    tween,
+    // Control methods from tween
+    update: tween.update.bind(tween) as typeof TWEEN.Tween.prototype.update,
+    start: tween.start.bind(tween) as typeof TWEEN.Tween.prototype.start,
+    stop: tween.stop.bind(tween) as typeof TWEEN.Tween.prototype.stop,
+    pause: tween.pause.bind(tween) as typeof TWEEN.Tween.prototype.pause,
+    resume: tween.resume.bind(tween) as typeof TWEEN.Tween.prototype.resume,
+    isPlaying: tween.isPlaying.bind(tween) as typeof TWEEN.Tween.prototype.isPlaying,
+    isPaused: tween.isPaused.bind(tween) as typeof TWEEN.Tween.prototype.isPaused,
+  }
 }
