@@ -96,3 +96,32 @@ export function useTween<T extends Record<string, any>>(obj: T, _setter: TweenSe
     isPaused: tween.isPaused.bind(tween) as typeof TWEEN.Tween.prototype.isPaused,
   }
 }
+
+export type ChainedTweenSetters<T extends Record<string, any>> = Omit<TweenSetters<T>, 'to'> & {
+  to: [Partial<T>, number][]
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useChainedTween<T extends Record<string, any>>(obj: T, setters: ChainedTweenSetters<T>) {
+  const tweens: ReturnType<typeof useTween>[] = []
+  setters.to.forEach(([to, duration], index) => {
+    const _obj = index === 0 ? obj : setters.to[index - 1][0]
+    const _setter = {
+      ...setters,
+      to: [to, duration] as [Partial<T>, number],
+      startImmediately: index === 0 && setters.startImmediately !== false,
+    }
+    tweens.push(useTween(_obj, _setter))
+  })
+
+  // Chain the tweens
+  for (let i = 0; i < tweens.length - 1; i++) {
+    tweens[i].tween.chain(tweens[i + 1].tween)
+  }
+
+  return {
+    tweens,
+    // Control methods from tween
+    ...tweens[0],
+  }
+}
