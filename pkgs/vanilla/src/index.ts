@@ -52,14 +52,14 @@ export type TweenSetters<T extends Record<string, any>> = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useTween<T extends Record<string, any>>(obj: T, _setter: TweenSetters<T> = {}) {
-  const tween = new TWEEN.Tween<T>(obj, _setter.group || false)
+  const tween = new TWEEN.Tween<T>(obj, _setter.group)
 
   const setter = {
     startImmediately: true,
     ..._setter,
   }
 
-  if (setter.group) {
+  if (setter.group !== undefined) {
     delete setter.group
   }
 
