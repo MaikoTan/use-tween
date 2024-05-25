@@ -99,6 +99,8 @@ export function useTween<T extends Record<string, any>>(obj: T, _setter: TweenSe
 
 export type ChainedTweenSetters<T extends Record<string, any>> = Omit<TweenSetters<T>, 'to'> & {
   to: [Partial<T>, number][]
+  /** The delay before the first tween starts. */
+  delayBeforeStart?: number
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -112,6 +114,10 @@ export function useChainedTween<T extends Record<string, any>>(obj: T, setters: 
       startImmediately: index === 0 && setters.startImmediately !== false,
     }
 
+    // Delay the first tween
+    if (index === 0 && setters.delayBeforeStart) {
+      _setter.delay = setters.delayBeforeStart
+    }
     // onStart should only be called on the first tween
     if (index !== 0 && _setter.onStart) {
       delete _setter.onStart
