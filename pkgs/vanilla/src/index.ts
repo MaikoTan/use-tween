@@ -111,6 +111,16 @@ export function useChainedTween<T extends Record<string, any>>(obj: T, setters: 
       to: [to, duration] as [Partial<T>, number],
       startImmediately: index === 0 && setters.startImmediately !== false,
     }
+
+    // onStart should only be called on the first tween
+    if (index !== 0 && _setter.onStart) {
+      delete _setter.onStart
+    }
+    // onComplete should only be called on the last tween
+    if (index !== setters.to.length - 1 && _setter.onComplete) {
+      delete _setter.onComplete
+    }
+
     tweens.push(useTween(_obj, _setter))
   })
 
